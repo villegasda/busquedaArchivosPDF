@@ -36,12 +36,15 @@
               </form>
           </div>
       </div>
-      <div class="card" id="buscadorCard" style="width: 600px;display: none;">
+      <div class="card" id="buscadorCard" style="width: 600px;display: block;">
           <div class="card-header">
               <label for="">Todos los Certificados</label>
           </div>
           <div class="card-body" id="buscarPDFS">
-
+              <?php
+              $ruta = "temp/455226BSAID/";
+                obtener_estructura_directorios($ruta);
+              ?>
           </div>
       </div>
     </div>
