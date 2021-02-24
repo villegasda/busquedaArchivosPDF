@@ -38,3 +38,54 @@ $("#btnReset").click(function(){
     location.reload();
 
 });
+
+$(document).on("click","#btn-1",function(){
+    alert($(this).tittle());
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+    
+    });
+});
+
+$(document).on("click","#btn-2",function(){
+    alert($(this).val());
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+    
+    });
+});
+
+$(document).on("click","#btn-3",function(){
+    alert($(this).val());
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+    
+    });
+});
+$(document).on("click","#btn-4",function(){
+    alert();
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+    
+    });
+});
+$(document).on("click","#btn-5",function(){
+    alert($(this).val());
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+    
+    });
+});
+$(document).on("click","#btn-6",function(){
+    alert($(this).val());
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+    
+    });
+});

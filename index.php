@@ -5,20 +5,27 @@
 <!doctype html>
 <html lang="en">
   <head>    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <link rel="stylesheet" href="vista/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css"> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Buscador de Certificados de Pacientes Asegurador</title>   
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Mis style -->
+    <link rel="stylesheet" href="vistas/css/style.css">
+    <link rel="stylesheet" href="vistas/css/boilerplate.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="vistas/dist/css/adminlte.css">
+    <!-- jQuery -->
+    <script src="vistas/plugins/jquery/jquery.min.js"></script>
+    <script src="vistas/dist/js/adminlte.min.js"></script>
+    <script src="vistas/dist/js/cns_cbba.js"></script>
+<title>Buscador de Certificados de Pacientes Asegurador</title>   
   </head>
   <body>
     <div class="content">
-      <div class="card" style="width: 600px;">
-          <div class="card-header" align="center">
+      <div class="col_contenedor_cns col-sm-8 col-md-9 container-fluid gecn_submenu">
+          <div class="panel-heading cont126">
             <label for="">Buscador</label>
           </div>
-          <div class="card-body">        
+          <div class="panel-body cont126">        
               <form>
                   <div class="form-group">
                       <label for="txtMatricula">Matricula</label>
@@ -36,16 +43,73 @@
               </form>
           </div>
       </div>
-      <div class="card" id="buscadorCard" style="width: 600px;display: block;">
-          <div class="card-header">
-              <label for="">Todos los Certificados</label>
+      <br>
+      <div class="col_contenedor_cns col-sm-8 col-md-9 container-fluid gecn_submenu">      
+        <div class="panel-body cont126" id="buscarPDFS">
+          <div class="panel panel-info rgAr">								
+              <h2 class="panel-heading">
+                  <i class="fa fa-file-archive-o"></i>
+              Archivos</h2>										
+              <table class="table">
+                  <tbody>
+                      <tr>
+                          <th class="col-md-7">Titulo</th>
+                          <th class="col-md-2">Fecha</th>
+                          <th class="col-md-1">Tipo</th>
+                          <th class="col-md-1">Tamaño</th>	
+                          <th class="col-md-1">Descargas</th>									
+                          <th class="col-md-1">Descargar</th>												
+                      </tr>
+                      <tr>
+                          <td class="a_cmp1">form PAC 2019</td>
+                          <td>29-01-19</td>
+                          <td><i class="fa fa-file-excel-o fa-2x"></i></td>
+                          <td>33</td>
+                          <td><span class="badge">438</span></td>
+                          <td><a href="/archivos_subidos/Informes/pac2019.xlsx" data-gecnreg="437" target="_blank"><i class="fa fa-cloud-download fa-2x"></i></a></td>						
+                      </tr>
+                  </tbody>
+              </table>       	
           </div>
-          <div class="card-body" id="buscarPDFS">
-              <?php
-              $ruta = "temp/455226BSAID/";
-                obtener_estructura_directorios($ruta);
-              ?>
-          </div>
+        </div>
+      </div>                
+    </div>
+
+    <div id="ver-pdf" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="fichaResultadoPDF" aria-hidden="true">  
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!--=====================================
+            CABEZA DEL MODAL
+            ======================================-->
+            <div class="modal-header bg-gradient-info">
+              <h5 class="modal-title" id="fichaResultadoPDF">Ficha Generada Resultado Covid19</h5>        
+              <button type="button" class="close btnCerrarReporte" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+
+            <!--=====================================
+            CUERPO DEL MODAL
+            ======================================-->
+
+            <div class="modal-body">          
+              <div id="view_pdf">
+
+
+              </div>
+            </div>
+
+            <!--=====================================
+            PIE DEL MODAL
+            ======================================-->
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default float-left btnCerrarReporte" data-dismiss="modal">
+                <i class="fas fa-times"></i>
+                Cerrar
+              </button>
+            </div>
+        </div>
       </div>
     </div>
 
@@ -56,3 +120,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   </body>
 </html>
+
+

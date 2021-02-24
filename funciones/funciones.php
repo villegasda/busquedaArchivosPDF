@@ -9,6 +9,7 @@ function obtener_estructura_directorios($ruta){
         // Abre un gestor de directorios para la ruta indicada
         $gestor = opendir($ruta);
         echo "<ol>";
+        $iden=1;
         // Recorre todos los elementos del directorio
         while (($archivo = readdir($gestor)) !== false)  {                
             $ruta_completa = $ruta . "/" . $archivo;
@@ -16,10 +17,12 @@ function obtener_estructura_directorios($ruta){
             if ($archivo != "." && $archivo != "..") {
                 // Si es un directorio se recorre recursivamente
                 if (is_dir($ruta_completa)) {
-                    echo "<button class='btn btn-outline-success' data-toggle='tooltip' title='".$archivo."'><i class='fas fa-file-pdf'></i></button>";
-                    obtener_estructura_directorios($ruta_completa);
+                    //echo "<button class='btn btn-outline-success'  data-toggle='tooltip' title='".$archivo."'><i class='fas fa-file-pdf'></i></button>";
+                    //obtener_estructura_directorios($ruta_completa);
                 } else {
-                   echo "<li><button class='btn btn-outline-success' data-toggle='tooltip' title='".$archivo."'><i class='fas fa-file-pdf'></i></button>".$archivo."</li>";
+                    //$id = explode(".",$archivo)[0];
+                   echo "<li><button class='btn btn-outline-primary' id='btn-".$iden."' data-toggle='tooltip' title='".$archivo."'><i class='fas fa-file-pdf'></i></button>  ".$archivo."</li>";
+                   $iden++;
                 }
             }
         }
