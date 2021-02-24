@@ -29,7 +29,7 @@
               <form>
                   <div class="form-group">
                       <label for="txtMatricula">Matricula</label>
-                      <input type="text" class="form-control" style="width: 200px;" id="txtMatricula" placeholder="Ingrese su matricula">
+                      <input type="text" class="form-control" value="901024BVDID" style="width: 200px;" id="txtMatricula" placeholder="Ingrese su matricula">
                       <label for="error" id="error"></label>                   
                   </div>
                   <br>
@@ -44,30 +44,21 @@
           </div>
       </div>
       <br>
-      <div class="col_contenedor_cns col-sm-8 col-md-9 container-fluid gecn_submenu">      
-        <div class="panel-body cont126" id="buscarPDFS">
+      <div class="col_contenedor_cns col-sm-8 col-md-9 container-fluid gecn_submenu" id="buscadorCard" style="display: none; size:500px;">      
+        <div class="panel-body cont126">
           <div class="panel panel-info rgAr">								
               <h2 class="panel-heading">
                   <i class="fa fa-file-archive-o"></i>
               Archivos</h2>										
-              <table class="table">
-                  <tbody>
+              <table class="table" >
+                  <tbody id="buscarPDFS">
                       <tr>
                           <th class="col-md-7">Titulo</th>
                           <th class="col-md-2">Fecha</th>
                           <th class="col-md-1">Tipo</th>
                           <th class="col-md-1">Tamaño</th>	
-                          <th class="col-md-1">Descargas</th>									
-                          <th class="col-md-1">Descargar</th>												
-                      </tr>
-                      <tr>
-                          <td class="a_cmp1">form PAC 2019</td>
-                          <td>29-01-19</td>
-                          <td><i class="fa fa-file-excel-o fa-2x"></i></td>
-                          <td>33</td>
-                          <td><span class="badge">438</span></td>
-                          <td><a href="/archivos_subidos/Informes/pac2019.xlsx" data-gecnreg="437" target="_blank"><i class="fa fa-cloud-download fa-2x"></i></a></td>						
-                      </tr>
+                          <th class="col-md-1">Imprimir</th>                          
+                      </tr>                     
                   </tbody>
               </table>       	
           </div>
@@ -111,6 +102,65 @@
             </div>
         </div>
       </div>
+    </div>
+
+
+    <!--=====================================
+VENTANA MODAL PARA MOSTRAR REPORTE PDF
+======================================-->
+
+    <div id="ver-pdf" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="fichaPDF" aria-hidden="true">
+      
+      <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <!--=====================================
+            CABEZA DEL MODAL
+            ======================================-->
+
+            <div class="modal-header bg-gradient-info">
+
+              <h5 class="modal-title" id="fichaPDF">Formulario de Impresiones</h5>
+            
+              <button type="button" class="close btnCerrarReporte" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+
+            </div>
+
+            <!--=====================================
+            CUERPO DEL MODAL
+            ======================================-->
+
+            <div class="modal-body">
+              
+              <div id="view_pdf">
+          
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            PIE DEL MODAL
+            ======================================-->
+
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-default float-left btnCerrarReporte" data-dismiss="modal">
+
+                <i class="fas fa-times"></i>
+                Cerrar
+
+              </button>
+
+            </div>
+
+        </div>
+
+      </div>
+
     </div>
 
 

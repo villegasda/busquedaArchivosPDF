@@ -8,8 +8,7 @@ function obtener_estructura_directorios($ruta){
     if (is_dir($ruta)){
         // Abre un gestor de directorios para la ruta indicada
         $gestor = opendir($ruta);
-        echo "<ol>";
-        $iden=1;
+        //echo "<tr>";
         // Recorre todos los elementos del directorio
         while (($archivo = readdir($gestor)) !== false)  {                
             $ruta_completa = $ruta . "/" . $archivo;
@@ -20,16 +19,30 @@ function obtener_estructura_directorios($ruta){
                     //echo "<button class='btn btn-outline-success'  data-toggle='tooltip' title='".$archivo."'><i class='fas fa-file-pdf'></i></button>";
                     //obtener_estructura_directorios($ruta_completa);
                 } else {
-                    //$id = explode(".",$archivo)[0];
-                   echo "<li><button class='btn btn-outline-primary' id='btn-".$iden."' data-toggle='tooltip' title='".$archivo."'><i class='fas fa-file-pdf'></i></button>  ".$archivo."</li>";
-                   $iden++;
+                   echo "<tr>
+                            <td>
+                                CERTIFICADO
+                            </td>
+                            <td>
+                                12-02-2021
+                            </td>
+                            <td>
+                                <i class='fas fa-file-pdf'></i>
+                            </td>
+                             <td>
+                                4875 kB
+                            </td>
+                            <td>
+                                <button class='btn btn-outline-primary' data-toggle='tooltip' title=''><i class='fas fa-file-pdf'></i></button>
+                            </td>
+                        </tr>";                   
                 }
             }
         }
         
         // Cierra el gestor de directorios
         closedir($gestor);
-        echo "</ol>";
+        //echo "</tr>";
     } else {
         echo "No es una ruta de directorio valida<br/>";
     }   

@@ -6,8 +6,7 @@ $("#btnBuscar").click(function(){
     var txtMatricula = $("#txtMatricula").val();
     var copia = $("#txtcopia").val();
     var captcha = $("#captcha").val();
-    if(txtMatricula!="" && copia == captcha){
-        
+    if(txtMatricula!="" && copia == captcha){        
         var datos = new FormData();
         datos.append("buscadorArchivo","buscadorArchivo");
         datos.append("txtMatricula",txtMatricula);
@@ -19,8 +18,9 @@ $("#btnBuscar").click(function(){
             contentType: false,
             processData: false,
             success: function(respuesta) {
+                console.log(respuesta);
                 $("#buscadorCard").show();
-                $("#buscarPDFS").html(respuesta);              			
+                $("#buscarPDFS").append(respuesta);              			
                 swal.close();
             }
         });
@@ -39,53 +39,67 @@ $("#btnReset").click(function(){
 
 });
 
-$(document).on("click","#btn-1",function(){
-    alert($(this).tittle());
-    $('#ver-pdf').modal({
-        show:true,
-        backdrop:'static'
-    
-    });
-});
 
-$(document).on("click","#btn-2",function(){
-    alert($(this).val());
-    $('#ver-pdf').modal({
-        show:true,
-        backdrop:'static'
-    
-    });
-});
+$(document).on("click", "button.btn", function() {
+    //alert("entro aqui");
 
-$(document).on("click","#btn-3",function(){
-    alert($(this).val());
     $('#ver-pdf').modal({
         show:true,
         backdrop:'static'
-    
+
     });
-});
-$(document).on("click","#btn-4",function(){
-    alert();
-    $('#ver-pdf').modal({
-        show:true,
-        backdrop:'static'
     
+
+    PDFObject.embed("temp/certificado-alta-2.pdf", "#view_pdf");
+	
+	/* var idFicha = $(this).attr("idFicha");
+	var code = $(this).data("code");
+
+	var datos = new FormData();
+
+	datos.append("fichaEpidemiologicaPDF", "fichaEpidemiologicaPDF");
+	datos.append("idFicha", idFicha);
+
+	swal.fire({
+        text: 'Procesando...',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        onOpen: () => {
+            swal.showLoading()
+        }
     });
-});
-$(document).on("click","#btn-5",function(){
-    alert($(this).val());
-    $('#ver-pdf').modal({
-        show:true,
-        backdrop:'static'
-    
-    });
-});
-$(document).on("click","#btn-6",function(){
-    alert($(this).val());
-    $('#ver-pdf').modal({
-        show:true,
-        backdrop:'static'
-    
-    });
+
+	$.ajax({
+
+		url: "ajax/fichas.ajax.php",
+		type: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		//dataType: "string",
+		success: function(respuesta) {
+
+			//Para cerrar la alerta personalizada de loading
+			//console.log("esta es la respuestaMark: " + (respuesta));
+			//var aux = respuesta.split("<br />")[0];
+			//var aux = auxliar(respuesta);
+			//alert(aux);
+			swal.close();
+
+			$('#ver-pdf').modal({
+				show:true,
+				backdrop:'static'
+
+			});
+			console.log(respuesta);
+			
+
+			PDFObject.embed("temp/"+code+"/ficha-epidemiologica-"+idFicha+".pdf", "#view_pdf");
+
+		}
+
+	}); */
+
 });
