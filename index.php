@@ -13,36 +13,40 @@
     <title>Buscador de Certificados de Pacientes Asegurador</title>   
   </head>
   <body>
-    <div class="card" style="width: 600px;">
-        <div class="card-header" align="center">
-          <label for="">Buscador</label>
-        </div>
-        <div class="card-body">        
-            <form>
-                <div class="form-group">
-                    <label for="txtMatricula">Matricula</label>
-                    <input type="text" class="form-control" style="width: 200px;" id="txtMatricula" placeholder="Ingrese su matricula">
-                    <label for="error" id="error"></label>                   
-                </div>
-                <br>
-                <div class="form-group">
-                  <input type="text" class="form-control captcha" style="width: 100px;" name="captcha" id="captcha" value=<?php echo codigo_captcha(); ?> readonly>
-                  <input type="text" class="form-control" style="width: 100px;" name="txtcopia" id="txtcopia">                  
-                </div>
-                <br>               
-                <button type="button" class="btn btn-primary" id="btnBuscar" name="btnBuscar">Buscar</button>
-                <button type="button" class="btn btn-danger" id="btnReset" name="btnReset" >Reset</button>
-            </form>
-        </div>
-    </div>
-    <div class="card" id="buscadorCard" style="width: 600px;display: none;">
-        <div class="card-header">
-            <label for="">Todos los Certificados</label>
-        </div>
-        <div class="card-body" id="buscarPDFS">
+    <div class="content">
+      <div class="card" style="width: 600px;">
+          <div class="card-header" align="center">
+            <label for="">Buscador</label>
+          </div>
+          <div class="card-body">        
+              <form>
+                  <div class="form-group">
+                      <label for="txtMatricula">Matricula</label>
+                      <input type="text" class="form-control" style="width: 200px;" id="txtMatricula" placeholder="Ingrese su matricula">
+                      <label for="error" id="error"></label>                   
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input type="text" class="form-control captcha" style="width: 100px;" name="captcha" id="captcha" value=<?php echo codigo_captcha(); ?> readonly>
+                    <input type="text" class="form-control" style="width: 100px;" name="txtcopia" id="txtcopia">                  
+                  </div>
+                  <br>               
+                  <button type="button" class="btn btn-primary" id="btnBuscar" name="btnBuscar">Buscar</button>
+                  <button type="button" class="btn btn-danger" id="btnReset" name="btnReset" >Reset</button>
+              </form>
+          </div>
+      </div>
+      <div class="card" id="buscadorCard" style="width: 600px;display: none;">
+          <div class="card-header">
+              <label for="">Todos los Certificados</label>
+          </div>
+          <div class="card-body" id="buscarPDFS">
 
-        </div>
+          </div>
+      </div>
     </div>
+
+
     <script src="vista/jquery/jquery.js"></script>
     <script src="js/funciones.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>   

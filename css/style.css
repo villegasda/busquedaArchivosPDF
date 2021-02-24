@@ -1,0 +1,30 @@
+.captcha{
+    border-radius: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+    height: 45px;
+    border-color: #000000;
+    text-align: center;
+
+  }
+
+  .boton{
+    border-radius: 8px;
+    font-size: 15px;
+    text-transform: uppercase;
+    height: 45px;
+    color: #FFF;
+    background-color: #FF0040;	
+    text-align: center;
+    width: 150px;
+  }
+
+  .content {
+    display: inline-block;
+    justify-content: center;
+  }
+  .card {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(173, 192, 245);
+  }
