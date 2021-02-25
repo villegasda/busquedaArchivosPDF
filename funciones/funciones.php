@@ -19,21 +19,39 @@ function obtener_estructura_directorios($ruta){
                     //echo "<button class='btn btn-outline-success'  data-toggle='tooltip' title='".$archivo."'><i class='fas fa-file-pdf'></i></button>";
                     //obtener_estructura_directorios($ruta_completa);
                 } else {
+                        $nombreArchivo = substr((explode(".",$archivo)[0]),0, strlen(explode(".",$archivo)[0])-3);
                    echo "<tr>
+                            <td>";
+                                if($nombreArchivo=="certificado-alta"){
+                                    echo "Certificado de Alta";
+                                }
+                                else if($nombreArchivo=="certificado-medico"){
+                                    echo "Certificado Medico";
+                                }
+                                else if($nombreArchivo=="consentimiento"){
+                                    echo "Consentimiento Medico";
+                                }
+                                else if($nombreArchivo=="ficha-epidemiologica"){
+                                    echo "Ficha Epidemiologica";
+                                }
+                                else if($nombreArchivo=="formularioIncapacidad"){
+                                    echo "Formulario de Incapacidad";
+                                }
+                                else if($nombreArchivo=="resultado-laboratorio"){
+                                    echo "Resultado de Laboratorio";
+                                }
+                         echo "</td>
                             <td>
-                                CERTIFICADO
-                            </td>
-                            <td>
-                                12-02-2021
+                                ".date("d M Y",filemtime($ruta_completa))."
                             </td>
                             <td>
                                 <i class='fas fa-file-pdf fa-2x'></i>
                             </td>
                              <td>
-                                4875 kB
+                                ".(int)(filesize($ruta_completa)/1024)." KB
                             </td>
                             <td>
-                                <button class='btn btn-outline-danger' data-toggle='tooltip' title=''><i class='fas fa-print'></i></button>
+                                <button class='btn btn-outline-danger ".$nombreArchivo."' id='".$archivo."' data-toggle='tooltip' title='".$nombreArchivo."'><i class='fas fa-print'></i></button>
                             </td>
                         </tr>";                   
                 }

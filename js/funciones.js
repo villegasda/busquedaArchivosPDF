@@ -22,6 +22,7 @@ $("#btnBuscar").click(function(){
                 $("#buscadorCard").show();
                 $("#buscarPDFS").append(respuesta);              			
                 swal.close();
+                $("#btnBuscar").attr("disabled","disabled");
             }
         });
     }
@@ -37,6 +38,47 @@ $("#btnReset").click(function(){
     $("#buscarPDFS").html("");
     location.reload();
 
+});
+
+$(document).on("click","button.certificado-alta",function(){
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    $('#ver-pdfs').modal({
+        show:true,
+        backdrop:'static'
+
+    });
+    PDFObject.embed("/temp/"+txtMatricula+"/"+btn+"", "#view_pdf");
+});
+
+$(document).on("click","button.certificado-medico",function(){
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    alert(txtMatricula+' '+btn);
+});
+
+$(document).on("click","button.consentimiento",function(){
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    alert(txtMatricula+' '+btn);
+});
+
+$(document).on("click","button.ficha-epidemiologica",function(){
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    alert(txtMatricula+' '+btn);
+});
+
+$(document).on("click","button.formularioIncapacidad",function(){
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    alert(txtMatricula+' '+btn);
+});
+
+$(document).on("click","button.resultado-laboratorio",function(){
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    alert(txtMatricula+' '+btn);
 });
 
 

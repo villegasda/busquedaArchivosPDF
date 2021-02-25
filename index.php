@@ -1,6 +1,6 @@
 <?php
+require_once "./extensiones/tcpdf/tcpdf.php";
 @include('funciones/funciones.php');
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -44,6 +44,8 @@
 
       <!-- Daterange picker --> 
       <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
+
+      <link rel="stylesheet" href="vistas/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
 
       <!--=====================================
       PLUGINS JAVASCRIPT
@@ -114,12 +116,12 @@
     <div class="container">
       <div class="row-cols-auto">
           <div class="col">
-            <label for="">Buscador 455226BSAID</label>        
+            <label for="">Buscador 901024BVDID</label>        
           </div> 
           <form>
               <div class="form-group col-4">
                   <label for="txtMatricula">Matricula</label>
-                  <input type="text" class="form-control mayuscula" value="455226BSAID" id="txtMatricula" placeholder="Ingrese su matricula">
+                  <input type="text" class="form-control mayuscula" value="896202AAYID" id="txtMatricula" placeholder="Ingrese su matricula">
                   <label for="error" id="error"></label>                   
               </div>
               <div class="form-group col-2">
@@ -128,9 +130,9 @@
               <div class="form-group col-2">
                 <input type="text" class="form-control mayuscula" name="txtcopia" id="txtcopia">
               </div>
-              <div class="form-group col-3">
+              <div class="form-group col-6">
                 <button type="button" class="btn btn-primary" id="btnBuscar" name="btnBuscar">Buscar</button>
-                <button type="button" class="btn btn-danger" id="btnReset" name="btnReset" >Reset</button>
+                <button type="button" class="btn btn-success" id="btnReset" name="btnReset">Nueva Busqueda</button>
               </div>
           </form>
       </div>
