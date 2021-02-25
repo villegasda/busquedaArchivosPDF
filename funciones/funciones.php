@@ -19,7 +19,8 @@ function obtener_estructura_directorios($ruta){
                     //echo "<button class='btn btn-outline-success'  data-toggle='tooltip' title='".$archivo."'><i class='fas fa-file-pdf'></i></button>";
                     //obtener_estructura_directorios($ruta_completa);
                 } else {
-                        $nombreArchivo = substr((explode(".",$archivo)[0]),0, strlen(explode(".",$archivo)[0])-3);
+                        //$nombreArchivo = substr((explode(".",$archivo)[0]),0, strlen(explode(".",$archivo)[0])-3);
+                        $nombreArchivo = substr($archivo,0,strrpos($archivo, "-"));
                    echo "<tr>
                             <td>";
                                 if($nombreArchivo=="certificado-alta"){
@@ -62,7 +63,7 @@ function obtener_estructura_directorios($ruta){
         closedir($gestor);
         //echo "</tr>";
     } else {
-        echo "No es una ruta de directorio valida<br/>";
+        echo "error";
     }   
 
 }

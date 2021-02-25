@@ -113,15 +113,17 @@ require_once "./extensiones/tcpdf/tcpdf.php";
 
   </head>
   <body>
+  
     <div class="container">
       <div class="row-cols-auto">
-          <div class="col">
-            <label for="">Buscador 901024BVDID</label>        
+      <?php echo "ejs. 901024BVDID, 896202AAYID"?>
+          <div class="col-auto">
+            <label for=""><h4>Buscador de Certificados Covid-19</h4></label>        
           </div> 
           <form>
               <div class="form-group col-4">
                   <label for="txtMatricula">Matricula</label>
-                  <input type="text" class="form-control mayuscula" value="896202AAYID" id="txtMatricula" placeholder="Ingrese su matricula">
+                  <input type="text" class="form-control mayuscula" value="" id="txtMatricula" placeholder="Ingrese su matricula">
                   <label for="error" id="error"></label>                   
               </div>
               <div class="form-group col-2">
