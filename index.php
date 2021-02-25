@@ -12,9 +12,10 @@ require_once "./extensiones/tcpdf/tcpdf.php";
     
     <title>Buscador de Certificados de Pacientes Asegurador</title>
 
-          <!--=====================================
+      <!--=====================================
         PLUGINS CSS
-        ======================================-->
+      ======================================-->
+
       <!--  BOOSTRAP -->
       <link rel="stylesheet" href="vistas/plugins/bootstrap/css/bootstrap.min.css">
       <!--  Bootstrap -->
@@ -28,85 +29,23 @@ require_once "./extensiones/tcpdf/tcpdf.php";
       <!-- Google Font: Source Sans Pro -->
       <!--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">-->
 
-      <!-- DataTables -->
-      <link rel="stylesheet" href="vistas/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-      <link rel="stylesheet" href="vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-      <link rel="stylesheet" href="vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
       <!-- SweetAlert 2 -->
       <link rel="stylesheet" href="vistas/plugins/sweetalert2/themes/bootstrap-4.css">
 
-      <!-- Toastr -->
-      <link rel="stylesheet" href="vistas/plugins/toastr/toastr.min.css">
-
-      <!-- iCheck for checkboxes and radio inputs -->
-      <link rel="stylesheet" href="vistas/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-
-      <!-- Daterange picker --> 
-      <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
-
-      <link rel="stylesheet" href="vistas/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
 
       <!--=====================================
       PLUGINS JAVASCRIPT
       ======================================-->
 
-      
-
 
       <!-- jQuery -->
       <script src="vistas/plugins/jquery/jquery.min.js"></script>
 
-      <!-- jQuery Validation -->
-      <script src="vistas/plugins/jquery-validation/jquery.validate.min.js"></script>
-
       <!-- Bootstrap 4 -->
       <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-      <!-- FastClick -->
-      <script src="vistas/plugins/fastclick/fastclick.js"></script>
-
-      <!-- DataTables -->
-      <script src="vistas/plugins/datatables/jquery.dataTables.min.js"></script>
-      <script src="vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-      <script src="vistas/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-      <script src="vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-      <script src="vistas/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-      <script src="vistas/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-      <script src="vistas/plugins/jszip/jszip.min.js"></script>    
-      <script src="vistas/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-      <script src="vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-      <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-      <script src="vistas/plugins/datatables-scroller/js/dataTables.scroller.min.js"></script>
-
       <!-- SweetAlert 2 -->
       <script src="vistas/plugins/sweetalert2/sweetalert2.min.js"></script>
-
-      <!-- Toastr -->
-      <script src="vistas/plugins/toastr/toastr.min.js"></script>
-
-      <!-- iCheck 1.0.1 -->
-      <!-- <script src="vistas/plugins/iCheck/icheck.min.js"></script> -->
-
-      <!-- InputMask -->
-      <script src="vistas/plugins/moment/moment.min.js"></script>
-      <script src="vistas/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-
-      <!-- JQueryNumber -->
-      <script src="vistas/plugins/jqueryNumber/jqueryNumber.min.js"></script>
-
-      <!-- Daterange picker --> 
-      <script src="vistas/plugins/daterangepicker/moment.min.js"></script>
-      <script src="vistas/plugins/daterangepicker/daterangepicker.js"></script>
-
-      <!-- MomentJS --> 
-      <script src="vistas/plugins/moment/moment.min.js"></script>
-
-      <!-- ChartJS --> 
-      <script src="vistas/plugins/chart.js/Chart.js"></script>
-
-      <!-- Numeral.js 2.0.6 --> 
-      <script src="vistas/plugins/numeral.js/numeral.js"></script>
 
       <!-- PDF Objetct --> 
       <script src="vistas/plugins/pdf_object/pdfobject.js"></script>
@@ -116,13 +55,13 @@ require_once "./extensiones/tcpdf/tcpdf.php";
   
     <div class="container">
       <div class="row-cols-auto">
-      <?php echo "ejs. 901024BVDID, 896202AAYID"?>
+      <?php //echo "ejs. 901024BVDID, 896202AAYID"?>
           <div class="col-auto">
-            <label for=""><h4>Buscador de Certificados Covid-19</h4></label>        
+            <label for=""><h4 style="background-color: #e9ecef; padding: 15px;">Buscador de Certificados Covid-19</h4></label>        
           </div> 
           <form>
-              <div class="form-group col-4">
-                  <label for="txtMatricula">Matricula</label>
+              <div class="form-group col-5">
+                  <label for="txtMatricula">Ingrese su Matricula</label>
                   <input type="text" class="form-control mayuscula" value="" id="txtMatricula" placeholder="Ingrese su matricula">
                   <label for="error" id="error"></label>                   
               </div>
