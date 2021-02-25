@@ -1,24 +1,28 @@
 <?php
+require_once "./extensiones/tcpdf/tcpdf.php";
 @include('funciones/funciones.php');
-
 ?>
 <!doctype html>
 <html lang="en">
   <head>    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-  <!--   <link rel="stylesheet" href="vistas/fontawesome-free/css/all.min.css"> -->
-    <link rel="stylesheet" href="css/style.css"> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- Mis style -->
+    <link rel="stylesheet" href="vistas/css/style.css">
+    
     <title>Buscador de Certificados de Pacientes Asegurador</title>
 
           <!--=====================================
         PLUGINS CSS
         ======================================-->
+      <!--  BOOSTRAP -->
+      <link rel="stylesheet" href="vistas/plugins/bootstrap/css/bootstrap.min.css">
+      <!--  Bootstrap -->
+      <script src="vistas/plugins/jquery/jquery.min.js"></script>
+      <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
+      <!-- Font Awesome Icons -->
+      <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
 
 
       <!-- Google Font: Source Sans Pro -->
@@ -41,9 +45,14 @@
       <!-- Daterange picker --> 
       <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
 
+      <link rel="stylesheet" href="vistas/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+
       <!--=====================================
       PLUGINS JAVASCRIPT
       ======================================-->
+
+      
+
 
       <!-- jQuery -->
       <script src="vistas/plugins/jquery/jquery.min.js"></script>
@@ -104,103 +113,71 @@
 
   </head>
   <body>
-    <div class="content">
-      <div class="card" style="width: 600px;">
-          <div class="card-header" align="center">
-            <label for="">Buscador 455226BSAID</label>
-          </div>
-          <div class="card-body">        
-              <form>
-                  <div class="form-group">
-                      <label for="txtMatricula">Matricula</label>
-                      <input type="text" class="form-control" style="width: 200px;" id="txtMatricula" placeholder="Ingrese su matricula">
-                      <label for="error" id="error"></label>                   
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <input type="text" class="form-control captcha" style="width: 100px;" name="captcha" id="captcha" value=<?php echo codigo_captcha(); ?> readonly>
-                    <input type="text" class="form-control" style="width: 100px;" name="txtcopia" id="txtcopia">                  
-                  </div>
-                  <br>               
-                  <button type="button" class="btn btn-primary" id="btnBuscar" name="btnBuscar">Buscar</button>
-                  <button type="button" class="btn btn-danger" id="btnReset" name="btnReset" >Reset</button>
-              </form>
-          </div>
+    <div class="container">
+      <div class="row-cols-auto">
+          <div class="col">
+            <label for="">Buscador 901024BVDID</label>        
+          </div> 
+          <form>
+              <div class="form-group col-4">
+                  <label for="txtMatricula">Matricula</label>
+                  <input type="text" class="form-control mayuscula" value="896202AAYID" id="txtMatricula" placeholder="Ingrese su matricula">
+                  <label for="error" id="error"></label>                   
+              </div>
+              <div class="form-group col-2">
+                <input type="text" class="form-control captcha" name="captcha" id="captcha" value=<?php echo codigo_captcha(); ?> readonly>                  
+              </div>
+              <div class="form-group col-2">
+                <input type="text" class="form-control mayuscula" name="txtcopia" id="txtcopia">
+              </div>
+              <div class="form-group col-6">
+                <button type="button" class="btn btn-success" id="btnBuscar" name="btnBuscar">Buscar</button>
+                <button type="button" class="btn btn-nuevo" id="btnReset" name="btnReset">Nueva Busqueda</button>
+              </div>
+          </form>
       </div>
-      <div class="card" id="buscadorCard" style="width: 600px;display: block;">
-          <div class="card-header">
-              <label for="">Todos los Certificados</label>
-          </div>
-          <div class="card-body" id="buscarPDFS">
-
-          </div>
-      </div>
+      <div class="row-cols-auto" id="buscadorCard" style="display: none;">      
+        <div class="col">								
+            <h2 class="rgAr">
+            <i class="far fa-file-archive"></i> Archivos
+            </h2>										
+            <table class="table" >
+                <tbody id="buscarPDFS">
+                    <tr>
+                        <th class="col-md-auto">Titulo</th>
+                        <th class="col-md-auto">Fecha</th>
+                        <th class="col-md-auto">Tipo</th>
+                        <th class="col-md-auto">Tamaño</th>	
+                        <th class="col-md-auto">Imprimir</th>                          
+                    </tr>                     
+                </tbody>
+            </table>       	
+        </div>
+      </div>                
     </div>
 
-<!--================================================================================-->
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="vermark">
-  
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-    <!--=====================================
-VENTANA MODAL PARA MOSTRAR REPORTE PDF
-======================================-->
-
-    <div id="ver-pdfs" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="fichaPDF" aria-hidden="true">
-      
+    <div id="ver-pdf" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="fichaResultadoPDF" aria-hidden="true">  
       <div class="modal-dialog modal-lg">
-
         <div class="modal-content">
-
             <!--=====================================
             CABEZA DEL MODAL
             ======================================-->
-
             <div class="modal-header bg-gradient-info">
-
-              <h5 class="modal-title" id="fichaPDF">Formulario de Impresiones</h5>
-            
+              <h5 class="modal-title" id="fichaResultadoPDF">Ficha Generada Resultado Covid19</h5>        
               <button type="button" class="close btnCerrarReporte" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
-
             </div>
 
             <!--=====================================
             CUERPO DEL MODAL
             ======================================-->
 
-            <div class="modal-body">
-              
-              <div id="viewpdf">
-          
+            <div class="modal-body">          
+              <div id="view_pdf">
+
 
               </div>
-
             </div>
 
             <!--=====================================
@@ -208,24 +185,16 @@ VENTANA MODAL PARA MOSTRAR REPORTE PDF
             ======================================-->
 
             <div class="modal-footer">
-
               <button type="button" class="btn btn-default float-left btnCerrarReporte" data-dismiss="modal">
-
                 <i class="fas fa-times"></i>
                 Cerrar
-
               </button>
-
             </div>
-
         </div>
-
       </div>
-
     </div>
-        <script src="js/funciones.js"></script>
-
-    <script src='https://www.google.com/recaptcha/api.js'></script>   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="js/funciones.js"></script>
   </body>
 </html>
+
+
