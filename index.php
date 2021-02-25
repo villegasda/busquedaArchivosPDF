@@ -113,15 +113,17 @@ require_once "./extensiones/tcpdf/tcpdf.php";
 
   </head>
   <body>
+  
     <div class="container">
       <div class="row-cols-auto">
-          <div class="col">
-            <label for="">Buscador 901024BVDID</label>        
+      <?php echo "ejs. 901024BVDID, 896202AAYID"?>
+          <div class="col-auto">
+            <label for=""><h4>Buscador de Certificados Covid-19</h4></label>        
           </div> 
           <form>
               <div class="form-group col-4">
                   <label for="txtMatricula">Matricula</label>
-                  <input type="text" class="form-control mayuscula" value="896202AAYID" id="txtMatricula" placeholder="Ingrese su matricula">
+                  <input type="text" class="form-control mayuscula" value="" id="txtMatricula" placeholder="Ingrese su matricula">
                   <label for="error" id="error"></label>                   
               </div>
               <div class="form-group col-2">
@@ -131,8 +133,8 @@ require_once "./extensiones/tcpdf/tcpdf.php";
                 <input type="text" class="form-control mayuscula" name="txtcopia" id="txtcopia">
               </div>
               <div class="form-group col-6">
-                <button type="button" class="btn btn-primary" id="btnBuscar" name="btnBuscar">Buscar</button>
-                <button type="button" class="btn btn-success" id="btnReset" name="btnReset">Nueva Busqueda</button>
+                <button type="button" class="btn btn-success" id="btnBuscar" name="btnBuscar">Buscar</button>
+                <button type="button" class="btn btn-nuevo" id="btnReset" name="btnReset">Nueva Busqueda</button>
               </div>
           </form>
       </div>
@@ -192,93 +194,6 @@ require_once "./extensiones/tcpdf/tcpdf.php";
             </div>
         </div>
       </div>
-    </div>
-
-<!--================================================================================-->
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="vermark">
-  
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-    <!--=====================================
-VENTANA MODAL PARA MOSTRAR REPORTE PDF
-======================================-->
-
-    <div id="ver-pdfs" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="fichaPDF" aria-hidden="true">
-      
-      <div class="modal-dialog modal-lg">
-
-        <div class="modal-content">
-
-            <!--=====================================
-            CABEZA DEL MODAL
-            ======================================-->
-
-            <div class="modal-header bg-gradient-info">
-
-              <h5 class="modal-title" id="fichaPDF">Formulario de Impresiones</h5>
-            
-              <button type="button" class="close btnCerrarReporte" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-
-            </div>
-
-            <!--=====================================
-            CUERPO DEL MODAL
-            ======================================-->
-
-            <div class="modal-body">
-              
-              <div id="viewpdf">
-          
-
-              </div>
-
-            </div>
-
-            <!--=====================================
-            PIE DEL MODAL
-            ======================================-->
-
-            <div class="modal-footer">
-
-              <button type="button" class="btn btn-default float-left btnCerrarReporte" data-dismiss="modal">
-
-                <i class="fas fa-times"></i>
-                Cerrar
-
-              </button>
-
-            </div>
-
-        </div>
-
-      </div>
-
     </div>
     <script src="js/funciones.js"></script>
   </body>

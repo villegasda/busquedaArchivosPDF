@@ -23,6 +23,7 @@ $("#btnBuscar").click(function(){
                 $("#buscarPDFS").append(respuesta);              			
                 swal.close();
                 $("#btnBuscar").attr("disabled","disabled");
+                $("#btnBuscar").css("background-color:#e9ecef");                
             }
         });
     }
@@ -41,119 +42,75 @@ $("#btnReset").click(function(){
 });
 
 $(document).on("click","button.certificado-alta",function(){
+    $("#fichaResultadoPDF").html("Certificado de Alta");
     var txtMatricula = $("#txtMatricula").val();
     var btn = this.id;    
-    $('#ver-pdfs').modal({
-        show:true,
+    $('#ver-pdf').modal({       
+        show:true,        
         backdrop:'static'
 
-    });
-    PDFObject.embed("/temp/"+txtMatricula+"/"+btn+"", "#view_pdf");
+    });   
+    
+    PDFObject.embed("temp/"+txtMatricula+"/"+btn+"", "#view_pdf");
 });
 
 $(document).on("click","button.certificado-medico",function(){
+    $("#fichaResultadoPDF").html("Certificado Medico");
     var txtMatricula = $("#txtMatricula").val();
     var btn = this.id;    
-    alert(txtMatricula+' '+btn);
-});
-
-$(document).on("click","button.consentimiento",function(){
-    var txtMatricula = $("#txtMatricula").val();
-    var btn = this.id;    
-    alert(txtMatricula+' '+btn);
-});
-
-$(document).on("click","button.ficha-epidemiologica",function(){
-    var txtMatricula = $("#txtMatricula").val();
-    var btn = this.id;    
-    alert(txtMatricula+' '+btn);
-});
-
-$(document).on("click","button.formularioIncapacidad",function(){
-    var txtMatricula = $("#txtMatricula").val();
-    var btn = this.id;    
-    alert(txtMatricula+' '+btn);
-});
-
-$(document).on("click","button.resultado-laboratorio",function(){
-    var txtMatricula = $("#txtMatricula").val();
-    var btn = this.id;    
-    alert(txtMatricula+' '+btn);
-});
-
-
-$(document).on("click", "button[title='certificado-alta-2.pdf']", function() {
-    alert("entro aqui");
-
-/*     swal.fire({
-        text: 'Procesando...',
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        allowEnterKey: false,
-        onOpen: () => {
-            swal.showLoading()
-        }
-    }); */
-
-    $('#ver-pdfs').modal({
+    $('#ver-pdf').modal({
         show:true,
         backdrop:'static'
 
     });
-    
-    PDFObject.embed("../temp/455226BSAID/certificado-alta-2.pdf", "#vermark"); //viewpdf    vermark
-    //PDFObject.embed("../temp/455226BSAID/certificado-alta-2.pdf", "#buscarPDFS"); 
-    //PDFObject.embed("../temp/certificado-alta-2.pdf", "#view_pdf");
-   // PDFObject.embed("/pdf/sample-3pp.pdf", "#example1");</script>
-	
-	/* var idFicha = $(this).attr("idFicha");
-	var code = $(this).data("code");
-
-	var datos = new FormData();
-
-	datos.append("fichaEpidemiologicaPDF", "fichaEpidemiologicaPDF");
-	datos.append("idFicha", idFicha);
-
-	swal.fire({
-        text: 'Procesando...',
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        allowEnterKey: false,
-        onOpen: () => {
-            swal.showLoading()
-        }
-    });
-
-	$.ajax({
-
-		url: "ajax/fichas.ajax.php",
-		type: "POST",
-		data: datos,
-		cache: false,
-		contentType: false,
-		processData: false,
-		//dataType: "string",
-		success: function(respuesta) {
-
-			//Para cerrar la alerta personalizada de loading
-			//console.log("esta es la respuestaMark: " + (respuesta));
-			//var aux = respuesta.split("<br />")[0];
-			//var aux = auxliar(respuesta);
-			//alert(aux);
-			swal.close();
-
-			$('#ver-pdf').modal({
-				show:true,
-				backdrop:'static'
-
-			});
-			console.log(respuesta);
-			
-
-			PDFObject.embed("temp/"+code+"/ficha-epidemiologica-"+idFicha+".pdf", "#view_pdf");
-
-		}
-
-	}); */
-
+    PDFObject.embed("temp/"+txtMatricula+"/"+btn+"", "#view_pdf");
 });
+
+$(document).on("click","button.consentimiento",function(){
+    $("#fichaResultadoPDF").html("Concentimiento");
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+
+    });
+    PDFObject.embed("temp/"+txtMatricula+"/"+btn+"", "#view_pdf");
+});
+
+$(document).on("click","button.ficha-epidemiologica",function(){
+    $("#fichaResultadoPDF").html("Ficha Epidemiologica");
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+
+    });
+    PDFObject.embed("temp/"+txtMatricula+"/"+btn+"", "#view_pdf");
+});
+
+$(document).on("click","button.formularioIncapacidad",function(){
+    $("#fichaResultadoPDF").html("Formulario de Incapacidad");
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+
+    });
+    PDFObject.embed("temp/"+txtMatricula+"/"+btn+"", "#view_pdf");
+});
+
+$(document).on("click","button.resultado-laboratorio",function(){
+    $("#fichaResultadoPDF").html("Resultado de Laboratorio");
+    var txtMatricula = $("#txtMatricula").val();
+    var btn = this.id;    
+    $('#ver-pdf').modal({
+        show:true,
+        backdrop:'static'
+
+    });
+    PDFObject.embed("temp/"+txtMatricula+"/"+btn+"", "#view_pdf");
+});
+
