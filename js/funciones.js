@@ -28,8 +28,24 @@ $("#btnBuscar").click(function(){
         });
     }
     else{
-        alert("Los Datos No Coinciden")
-        location.reload();
+        //alert("Los Datos No Coinciden")
+        swal.fire({
+						
+            title: "¡Los datos no coinciden!",
+            icon: "error",
+            allowOutsideClick: false,
+            confirmButtonText: "¡Revisar!"
+        
+        }).then((result)=> {
+        
+            if (result.value) {
+                location.reload();
+            }
+            else{
+            
+            }
+        
+        }) 
     }
 
 });
