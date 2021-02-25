@@ -27,13 +27,13 @@ function obtener_estructura_directorios($ruta){
                                 12-02-2021
                             </td>
                             <td>
-                                <i class='fas fa-file-pdf'></i>
+                                <i class='fas fa-file-pdf fa-2x'></i>
                             </td>
                              <td>
                                 4875 kB
                             </td>
                             <td>
-                                <button class='btn btn-outline-primary' data-toggle='tooltip' title=''><i class='fas fa-file-pdf'></i></button>
+                                <button class='btn btn-outline-danger' data-toggle='tooltip' title=''><i class='fas fa-print'></i></button>
                             </td>
                         </tr>";                   
                 }

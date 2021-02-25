@@ -18,7 +18,7 @@ $("#btnBuscar").click(function(){
             contentType: false,
             processData: false,
             success: function(respuesta) {
-                console.log(respuesta);
+                //console.log(respuesta);
                 $("#buscadorCard").show();
                 $("#buscarPDFS").append(respuesta);              			
                 swal.close();
@@ -40,17 +40,29 @@ $("#btnReset").click(function(){
 });
 
 
-$(document).on("click", "button.btn", function() {
-    //alert("entro aqui");
+$(document).on("click", "button[title='certificado-alta-2.pdf']", function() {
+    alert("entro aqui");
 
-    $('#ver-pdf').modal({
+/*     swal.fire({
+        text: 'Procesando...',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        onOpen: () => {
+            swal.showLoading()
+        }
+    }); */
+
+    $('#ver-pdfs').modal({
         show:true,
         backdrop:'static'
 
     });
     
-
-    PDFObject.embed("temp/certificado-alta-2.pdf", "#view_pdf");
+    PDFObject.embed("../temp/455226BSAID/certificado-alta-2.pdf", "#vermark"); //viewpdf    vermark
+    //PDFObject.embed("../temp/455226BSAID/certificado-alta-2.pdf", "#buscarPDFS"); 
+    //PDFObject.embed("../temp/certificado-alta-2.pdf", "#view_pdf");
+   // PDFObject.embed("/pdf/sample-3pp.pdf", "#example1");</script>
 	
 	/* var idFicha = $(this).attr("idFicha");
 	var code = $(this).data("code");
